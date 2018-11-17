@@ -4,17 +4,18 @@ $dbhost = '';
 $dbusername = '';
 $dbpassword = '';
 
-foreach ($_SERVER as $key => $value) {
-    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
-        continue;
-    }
+// foreach ($_SERVER as $key => $value) {
+//     if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+//         continue;
+//     }
     
-    $dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-    $dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-    $dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-}
+//     $dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+//     $dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+//     $dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+// }
 
-$connection = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname);
+$connection=mysqli_init(); 
+mysqli_real_connect($connection, "messageboard-wsql.mysql.database.azure.com", "userp@messageboard-wsql", {Petros123}, {message}, 3306);
 
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
