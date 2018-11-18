@@ -15,7 +15,8 @@ $dbpassword = '';
 // }
 
 $connection=mysqli_init(); 
-mysqli_real_connect($connection, "messageboard-wsql.mysql.database.azure.com", "userp@messageboard-wsql", {Petros123}, {message}, 3306);
+
+mysqli_real_connect($connection, "messageboard-wsql.mysql.database.azure.com", "userp@messageboard-wsql","Petros123","message", 3306);
 
 if (!$connection) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
