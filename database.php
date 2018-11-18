@@ -4,15 +4,15 @@ $dbhost = '';
 $dbusername = '';
 $dbpassword = '';
 
-// foreach ($_SERVER as $key => $value) {
-//     if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
-//         continue;
-//     }
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+        continue;
+    }
     
-//     $dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-//     $dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-//     $dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-// }
+    $dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
 
 $connection=mysqli_init(); 
 
